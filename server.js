@@ -1,3 +1,4 @@
+const exp = require('constants');
 const express = require('express');
 const app = express(),
       bodyParser = require("body-parser");
@@ -17,6 +18,12 @@ app.get('/', (req,res)=>{
 
 app.listen(port, ()=>{
     console.log(`Server running in port:  ${port}`);
+});
+
+app.use(express.static(__dirname+'/dist'));
+
+app.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
 });
 
 

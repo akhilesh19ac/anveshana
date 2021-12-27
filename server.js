@@ -16,7 +16,7 @@ app.get('/', (req,res)=>{
     console.log("user home page");
 });
 
-app.listen(port, ()=>{
+app.listen(process.env.PORT || port, ()=>{
     console.log(`Server running in port:  ${port}`);
 });
 

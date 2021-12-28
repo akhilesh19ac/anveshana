@@ -3,6 +3,8 @@ const express = require('express');
 const app = express(),
       bodyParser = require("body-parser");
       port = 3000;
+var path = require('path')
+
 
 app.use(bodyParser.json());
 
@@ -16,15 +18,17 @@ app.get('/api/users', (req,res)=>{
 //     console.log("user home page");
 // });
 
+
 app.listen(process.env.PORT || port, ()=>{
     console.log(`Server running in port:  ${port}`);
 });
 
-app.use(express.static(process.cwd()+'/dist'));
+app.use(express.static(process.cwd()+'/dist/sample-proj'));
 
-app.get('/*',function(req,res){
-    console.log("test inside slash entry in nodejs file" +(process.cwd()+'/dist/sample-proj/index.html'))
-    res.sendFile(process.cwd()+'/dist/sample-proj/index.html');
+app.get('/',function(req,res){
+    console.log("test inside slash entry in nodejs file" )
+    res.sendFile('index.html',{root:process.cwd()+'/dist/sample-proj'})
+    // res.sendFile(process.cwd()+'/dist/sample-proj/index.html');
 });
 
 

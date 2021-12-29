@@ -1,8 +1,9 @@
-body {
-    background-color: lightblue;
-  }
-  
-  h1 {
-    color: navy;
-    margin-left: 20px;
-  }
+
+@import './assets/css/bootstrap-icons.css';
+@import './assets/remixicon/remixicon.css';
+@import './assets/css/style.css';
+@import './assets/css/bootstrap.min.css';
+@import './assets/boxicons/css/boxicons.min.css';
+@import './assets/css/glightbox.min.css';
+@import './assets/css/swiper-bundle.min.css';
+@import './assets/css/aos.css';

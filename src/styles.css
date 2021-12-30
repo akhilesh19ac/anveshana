@@ -1,9 +1,34 @@
 
-@import './assets/css/bootstrap-icons.css';
+
 @import './assets/remixicon/remixicon.css';
 @import './assets/css/style.css';
-@import './assets/css/bootstrap.min.css';
 @import './assets/boxicons/css/boxicons.min.css';
 @import './assets/css/glightbox.min.css';
 @import './assets/css/swiper-bundle.min.css';
 @import './assets/css/aos.css';
+@import './assets/css/bootstrap-icons.css';
+
+
+@import './assets/bootstrap/css/bootstrap.css';
+/*
+@import './assets/bootstrap/css/bootstrap.min.css';
+@import './assets/bootstrap/css/bootstrap.rtl.css';
+@import './assets/bootstrap/css/bootstrap.rtl.min.css';
+@import './assets/bootstrap/css/bootstrap-grid.css';
+@import './assets/bootstrap/css/bootstrap-grid.min.css';
+@import './assets/bootstrap/css/bootstrap-grid.rtl.css';
+@import './assets/bootstrap/css/bootstrap-grid.rtl.min.css';
+@import './assets/bootstrap/css/bootstrap-reboot.css';
+@import './assets/bootstrap/css/bootstrap-reboot.min.css';
+@import './assets/bootstrap/css/bootstrap-utilities.css';
+@import './assets/bootstrap/css/bootstrap-utilities.min.css';
+@import './assets/bootstrap/css/bootstrap.rtl.css';
+@import './assets/bootstrap/css/bootstrap.rtl.min.css';*/
+
+.serviceCol{
+    margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 6px;
+    background: #252525;
+    transition: 0.3s;
+}

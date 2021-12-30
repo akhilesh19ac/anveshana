@@ -23,12 +23,12 @@ app.listen(process.env.PORT || port, ()=>{
     console.log(`Server running in port:  ${port}`);
 });
 
-app.use(express.static(process.cwd()+'/dist/sample-proj'));
+app.use(express.static(process.cwd()+'/dist/anveshana'));
 
 app.get('/',function(req,res){
     console.log("test inside slash entry in nodejs file" )
-    res.sendFile('index.html',{root:process.cwd()+'/dist/sample-proj'})
-    // res.sendFile(process.cwd()+'/dist/sample-proj/index.html');
+    res.sendFile('index.html',{root:process.cwd()+'/dist/anveshana'})
+    // res.sendFile(process.cwd()+'/dist/anveshana/index.html');
 });
 
 

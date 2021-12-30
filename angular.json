@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sampleProj": {
+    "anveshana": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sample-proj",
+            "outputPath": "dnpm startist/anveshana",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,15 +67,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options" : {
-            "browserTarget" : "sampleProj:build",
+            "browserTarget" : "anveshana:build",
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sampleProj:build:production"
+              "browserTarget": "anveshana:build:production"
             },
             "development": {
-              "browserTarget": "sampleProj:build:development"
+              "browserTarget": "anveshana:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sampleProj:build"
+            "browserTarget": "anveshana:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "sampleProj"
+  "defaultProject": "anveshana"
 }

@@ -1,18 +1,24 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 export class AppService {
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+  }
 
-hello(){
-  var s=this.http.get('/api/users');
-  console.log("hi2: "+s);
-}
+  postUserMessage2(userMessage: String){
+    var s=this.http.post('/api/userMessage', JSON.stringify(userMessage));
+    console.log("test "+JSON.stringify(userMessage) + s);
+    
+  }
+
+  postUserMessage(userMessage: String): Observable<String> {
+    return this.http.post<String>('/api/userMessage', userMessage);
+  }
 }

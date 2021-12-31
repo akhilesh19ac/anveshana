@@ -5,7 +5,7 @@ import { UserComponent } from './user/user.component';
 const routes: Routes = [
 //   {
 //   //   path:'/users' ,pathMatch:'full', redirectTo :'/api/users'
-//   path: '' , component:UserComponent
+//   // path: '' , component:UserComponent
 // },{
 // path:'test', component: UserComponent
 // }

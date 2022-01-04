@@ -6,6 +6,7 @@ swiper {
   testimonials-img-size{
   width:10%
   }
-  
-  
-  
+
+.team-member:hover {  
+  transform:  rotate3d(0,0,1,5deg);
+}

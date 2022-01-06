@@ -10,3 +10,14 @@ swiper {
 .team-member:hover {  
   transform:  rotate3d(0,0,1,5deg);
 }
+
+.serviceIcons{
+  font-size: xx-large;
+  color: red;
+}
+
+.serviceLabel{
+  font-size: x-large;
+  margin-left: 4%;
+  color: #fff;
+}

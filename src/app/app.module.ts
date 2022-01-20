@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
     ReactiveFormsModule,
     HttpClientModule,
     NgxUsefulSwiperModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

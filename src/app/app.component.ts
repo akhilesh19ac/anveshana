@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { SwiperOptions } from 'swiper';
 import { AppService } from './app.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,11 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'anveshana';
-  boolval:boolean = false;
+  closeResult = '';
   
+
   destroy$: Subject<boolean> = new Subject<boolean>();
   config: SwiperOptions = {
     pagination: {
@@ -30,20 +33,30 @@ export class AppComponent {
     },
     spaceBetween: 30
   };
-  constructor(private http: HttpClient, private appService: AppService) { }
-  ngOnInit(): void {
+  constructor(private http: HttpClient, private appService: AppService, private modalService: NgbModal) {}
 
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 onSubmitUserMessage(userMessage: NgForm) {
   console.log('Your form data : ', userMessage.value);
-  this.boolval = true;
   this.appService.postUserMessage(userMessage.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
     console.log('message::::', data);
   });
 }
-  
-  sendBoolean(){
-    return this.boolval;
-  }
 }

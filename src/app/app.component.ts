@@ -15,7 +15,7 @@ export class AppComponent {
 
   title = 'anveshana';
   closeResult = '';
-  
+  boolval:boolean = false;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
   config: SwiperOptions = {
@@ -55,8 +55,13 @@ export class AppComponent {
 
 onSubmitUserMessage(userMessage: NgForm) {
   console.log('Your form data : ', userMessage.value);
+  this.boolval = true;
   this.appService.postUserMessage(userMessage.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
     console.log('message::::', data);
   });
+}
+
+sendBoolean(){
+  return this.boolval;
 }
 }

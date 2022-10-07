@@ -1,18 +1,22 @@
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { SwiperOptions } from 'swiper';
-import { AppService } from './app.service';
+import { AppService } from '../app.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent {
+export class HomeComponent implements OnInit {
+
+  ngOnInit(): void {
+  }
+
 
   title = 'anveshana';
   closeResult = '';
@@ -35,7 +39,6 @@ export class AppComponent {
     },
     spaceBetween: 30
   };
-
   constructor(private http: HttpClient, private appService: AppService, private modalService: NgbModal, private router:Router,private elementRef: ElementRef) {}
 
   open(content: any) {
@@ -75,4 +78,5 @@ test(){
 ngOndestroy() {
   this.elementRef.nativeElement.remove();
 }
+
 }

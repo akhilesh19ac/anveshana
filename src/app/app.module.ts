@@ -8,11 +8,15 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    AdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

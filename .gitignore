@@ -3,3 +3,5 @@
 *.old
 *.json
 node_modules/.bin/ansi-html
+node_modules
+dist/

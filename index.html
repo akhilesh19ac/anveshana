@@ -204,6 +204,8 @@
         </div>
         <div class="contact-form-wrap">
           <form id="contactForm" class="contact-form" novalidate>
+            <input type="hidden" name="access_key" value="fe2b6829-b326-4b4e-add7-6346f657fc97">
+            <input type="hidden" name="subject" value="New message from Anveshana website">
             <h3>Write to Us</h3>
             <div class="form-row">
               <div class="form-group">
@@ -295,19 +297,44 @@
   track.parentElement.addEventListener('mouseleave', () => { autoplay = setInterval(() => goTo(current + 1), 5000); });
 
   // Contact form
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const status = document.getElementById('formStatus');
+    const btn = this.querySelector('button[type="submit"]');
     const data = new FormData(this);
-    const valid = [...data.values()].every(v => v.trim());
+
+    const valid = ['name','email','message'].every(f => data.get(f)?.trim());
     if (!valid) {
       status.textContent = 'Please fill in all fields.';
       status.className = 'form-status error';
       return;
     }
-    status.textContent = 'Your message has been sent. Thank you!';
-    status.className = 'form-status success';
-    this.reset();
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.className = 'form-status';
+    status.textContent = '';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+      if (json.success) {
+        status.textContent = 'Your message has been sent. Thank you!';
+        status.className = 'form-status success';
+        this.reset();
+      } else {
+        throw new Error(json.message);
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again or email us directly.';
+      status.className = 'form-status error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
   });
 </script>
 
